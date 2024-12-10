@@ -13,6 +13,14 @@ async function checkWorkshops() {
   const page = await context.newPage();
 
   try {
+    // Get workshop links from environment variable
+    const workshopLinks = process.env.WORKSHOP_LINKS?.split(",") || [];
+
+    if (workshopLinks.length === 0) {
+      console.log("No workshop links provided.");
+      return;
+    }
+
     console.log("Starting the login process...");
     // Navigate to the login page
     await page.goto(
@@ -26,9 +34,6 @@ async function checkWorkshops() {
     const welcomeText = page.getByText("Herzlich Willkommen, Dilshan Kelsen!");
     await expect(welcomeText).toBeAttached();
     console.log("Login successful!");
-
-    // Get workshop links from environment variable
-    const workshopLinks = process.env.WORKSHOP_LINKS.split(",");
 
     // Iterate through each workshop
     for (const workshopLink of workshopLinks) {
