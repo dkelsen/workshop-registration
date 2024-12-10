@@ -1,0 +1,24 @@
+{
+  "name": "workshop-registration",
+  "version": "1.0.0",
+  "description": "This is a script to help users sign up for a workshop at the Austrian Unternehmensgründungsprogramm as soon as it's available. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dkelsen/workshop-registration.git"
+  },
+  "author": "Dilshan Kelsen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dkelsen/workshop-registration/issues"
+  },
+  "homepage": "https://github.com/dkelsen/workshop-registration#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "playwright": "^1.49.1"
+  }
+}
