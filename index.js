@@ -14,7 +14,9 @@ async function checkWorkshops() {
 
   try {
     // Get workshop links from environment variable
-    const workshopLinks = process.env.WORKSHOP_LINKS?.split(",") || [];
+    const workshopLinks = process.env.WORKSHOP_LINKS?.split(",").filter(
+      (link) => link.length > 0
+    );
 
     if (workshopLinks.length === 0) {
       console.log("No workshop links provided.");
@@ -90,6 +92,7 @@ async function checkWorkshops() {
   }
 }
 
+checkWorkshops();
 // Schedule the process to run every hour
 setInterval(checkWorkshops, 3600000);
 
@@ -108,5 +111,3 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
   console.log("The bot will check for workshops every hour.");
 });
-
-checkWorkshops();
